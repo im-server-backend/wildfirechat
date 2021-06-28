@@ -34,18 +34,24 @@ namespace app {
 	public:
 		virtual ~Callback() {};
         
+		// 1 代理服务器信息
         virtual bool GetProxyInfo(const std::string& _host, mars::comm::ProxyInfo& _proxy_info) { return false; }
 
+// 2 获取App的文件路径
         virtual std::string GetAppFilePath() = 0;
         
+// 3 获取用户账户信息 		
 		virtual AccountInfo GetAccountInfo() = 0;
 
+//    获取客户端版本号
 		virtual unsigned int GetClientVersion() = 0;
 
+//   获取设备信息 
 		virtual DeviceInfo GetDeviceInfo() = 0;
 
 	};
 
+// 设置回调方法    
 	void SetCallback(Callback* const callback);
 }}
 
